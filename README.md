@@ -6,7 +6,9 @@ This is a Python tool that allows you to generate books in Minecraft based on a 
 
 To use the tool, run the following bash command:
 
+```bash
 python main.py &lt;text_file_path&gt; [-e &lt;encoding_format&gt;] [-t &lt;title&gt;] [-a &lt;author&gt;]
+```
 
 - &lt;text_file_path&gt;: The path to the text file containing the content for the book.
 - &lt;encoding_format&gt; (optional): The encoding format of the text file. If not specified, the default is utf-8.
