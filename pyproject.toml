@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "written book generator"
+version = "0.1.0"
+description = ""
+authors = ["XiYang6666 <1782356858@qq.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+nbtlib = "^2.0.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
