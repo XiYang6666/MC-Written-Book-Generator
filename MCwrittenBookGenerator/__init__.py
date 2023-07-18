@@ -24,7 +24,7 @@ def CreateBookCollection(
     bookList = []  # 书集列表
     while True:
         volume += 1
-        book = Book(title=title.format(volume=volume), author=author, string=string)
+        book = Book(title=title.format(volume=volume), author=author, string=string[length:])
         bookList.append(book)
 
         length += book.length
