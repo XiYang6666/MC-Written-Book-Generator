@@ -5,7 +5,10 @@ __all__ = ["Page", "Book"]
 
 
 def CreateBookCollection(
-    string: str, title: str = "writtenBook", author: str = None
+    string: str,
+    title: str = "writtenBook",
+    author: str = None,
+    extended_width_dict={},
 ) -> list[Book]:
     """
     创建书集
@@ -24,7 +27,12 @@ def CreateBookCollection(
     bookList = []  # 书集列表
     while True:
         volume += 1
-        book = Book(title=title.format(volume=volume), author=author, string=string[length:])
+        book = Book(
+            title=title.format(volume=volume),
+            author=author,
+            string=string[length:],
+            extended_width_dict=extended_width_dict,
+        )
         bookList.append(book)
 
         length += book.length

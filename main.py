@@ -36,7 +36,7 @@ with open("extended_width.json", encoding="utf-8") as f:
 with open(txtPath, "r", encoding=encoding) as f:
     string = f.read()
 
-book_list = CreateBookCollection(string, title, author)
+book_list = CreateBookCollection(string, title, author, extended_width_dict)
 for i in range(len(book_list)):
     book = book_list[i]  # type:Book
     with open(f"output-{i+1}.txt", "w", encoding="utf-8") as f:
