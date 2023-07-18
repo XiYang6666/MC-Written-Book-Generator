@@ -58,8 +58,8 @@ class Page:
             - extended_width_dict(dict): 扩展字符宽度字典
         """
         self.string = ""  # 书页的字符
-        self.length = self.create(string)  # 书页字符数
         self.extended_width_dict = extended_width_dict  # 扩展字符长度字典
+        self.length = self.create(string)  # 书页字符数
 
     def create(self, string: str) -> int:
         """
