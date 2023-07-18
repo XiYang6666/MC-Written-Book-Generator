@@ -30,7 +30,7 @@ if author is None:
     if author == "":
         author = None
 
-with open("extended_width.json") as f:
+with open("extended_width.json", encoding="utf-8") as f:
     extended_width_dict = json.load(f)
 
 with open(txtPath, "r", encoding=encoding) as f:
