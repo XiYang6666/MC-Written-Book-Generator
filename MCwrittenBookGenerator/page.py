@@ -104,12 +104,12 @@ class Page:
 
     def getCharWidth(self, char: str) -> int:
         """
-        获取字符长度
+        获取字符宽度
 
         Args:
             - char(str): 输入字符
         Returns:
-            - int: 字符长度
+            - int: 字符宽度
         """
         if char == "\n":
             return 0
