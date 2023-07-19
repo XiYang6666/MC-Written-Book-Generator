@@ -6,7 +6,7 @@ import json
 
 from MCwrittenBookGenerator import Book, CreateBookCollection
 
-parser = argparse.ArgumentParser(description="Generate a written book in Minecraft")
+parser = argparse.ArgumentParser(description="Generate written books in Minecraft")
 parser.add_argument("txt_path", type=str)
 parser.add_argument(
     "-e", "--encoding", help="Encoding method for txt", default="utf-8", type=str

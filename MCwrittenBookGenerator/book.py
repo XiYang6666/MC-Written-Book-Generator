@@ -103,7 +103,7 @@ class Book:
         返回是否成功
 
         Args:
-            -bookPage(Page): 书页
+            -bookPage(Page): 书页对象
         Returns:
             bool: 是否成功添加
         """
@@ -117,11 +117,12 @@ class Book:
         """
         获取成书的nbt
 
-        Returns:
-            - nbtlib.Compound: 成书的nbt
+        Args:
             - *
             - escapeWrap(bool): 是否转义换行符(json_text为True时该参数无效)
-            - json_text(bool): 是否使用JSON字符(会占用更多空间)
+            - json_text(bool): 是否使用JSON字符(启用会占用更多空间,不启用无法换行)
+        Returns:
+            - nbtlib.Compound: 成书的nbt
         """
         nbt = nbtlib.Compound()
         nbt["title"] = nbtlib.String(self.title)
@@ -138,13 +139,3 @@ class Book:
         return nbt
 
 
-# if __name__ == "__main__":
-#     with open("刘慈欣 - 三体.txt", "r", encoding="GBK") as f:
-#         string = f.read()
-#     book = Book()
-#     length = 0
-#     for i in range(2):
-#         length += (bookPage := Page(string[length:]))
-#         book.addPage(bookPage)
-
-#     print(book.getNbt())
