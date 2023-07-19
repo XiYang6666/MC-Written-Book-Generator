@@ -87,13 +87,12 @@ class Page:
                     dbg_line += char
                 line += 1
                 lineWidth = 0
-                #print(f"-> 换行了 {line} {len(dbg_line)} {dbg_line}")
+                # print(f"-> 换行了 {line} {len(dbg_line)} {dbg_line}")
                 dbg_line = ""
 
                 if line >= PAGE_HEIGHT:
                     # 翻页
                     break
-                    
                 # 未翻页
                 ...
             if not char == "\n":
@@ -102,33 +101,6 @@ class Page:
             lineWidth += charWidth
             length += 1
         return length
-
-        # for char in string:
-        #     charWidth = self.getCharWidth(char)
-        #     if (lineWidth + charWidth) >= PAGE_WIDTH or char == "\n":
-        #         print(line , PAGE_HEIGHT)
-        #         if line+1  >= PAGE_HEIGHT:
-        #             # 翻页
-        #             # print("-> 翻页了")
-        #             self.length = length
-        #             return length
-        #         else:
-        #             # 换行
-        #             if char == "\n":
-        #                 # \n导致的换行再结尾添加换行符
-        #                 dbg_line += char
-        #                 self.string += char
-        #             print(f"-> 换行了 {line} {len(dbg_line)} {dbg_line}")
-        #             dbg_line = ""
-
-        #             lineWidth = 0
-        #             line += 1
-        #     else:
-        #         # 未换行或不是由\n引起的换行下一行添加字符
-        #         lineWidth += charWidth
-        #         dbg_line += char
-        #         self.string += char
-        #     length += 1
 
     def getCharWidth(self, char: str) -> int:
         """
@@ -153,11 +125,12 @@ class Page:
         """
         获取书页的nbt
 
-        Returns:
-            - nbtlib.String: 书页的nbt
+        Args
             - *
             - escapeWrap(bool): 是否转义换行符(json_text为True时该参数无效)
             - json_text(bool): 是否使用JSON字符(启用会占用更多空间,不启用无法换行)
+        Returns:
+            - nbtlib.String: 书页的nbt
         """
         resultString = ""
         if json_text:
@@ -173,11 +146,4 @@ class Page:
     @classmethod
     def fromNbt(cls, nbt: nbtlib.Compound):
         string = nbt.get("text", "").unpack()  # type: str
-        cls(string)
-
-
-# if __name__ == "__main__":
-#     with open("刘慈欣 - 三体.txt", "r", encoding="GBK") as f:
-#         string = f.read()
-#     page = Page(string)
-#     print(page.getNbt())
+        return cls(string)
