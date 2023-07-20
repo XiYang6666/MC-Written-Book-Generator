@@ -10,10 +10,10 @@ To use the tool, run the following bash command:
 python main.py <text_file_path> [-e <encoding_format>] [-t <title>] [-a <author>]
 ```
 
-- &lt;text_file_path&gt;: The path to the text file containing the content for the written book.
-- &lt;encoding_format&gt; (optional): The encoding format of the text file. If not specified, the default is utf-8.
-- &lt;title&gt; (optional): The title of the written book. You can use the placeholder {volume} in the title, and it will be automatically replaced with the volume number during the generation process.
-- &lt;author&gt; (optional): The author of the written book.
+- `&lt;text_file_path&gt;`: The path to the text file containing the content for the written book.
+- `&lt;encoding_format&gt;` (optional): The encoding format of the text file. If not specified, the default is utf-8.
+- `&lt;title&gt;` (optional): The title of the written book. You can use the placeholder {volume} in the title, and it will be automatically replaced with the volume number during the generation process.
+- `&lt;author&gt;` (optional): The author of the written book.
 
 ## Troubleshooting
 
