@@ -10,7 +10,7 @@ def CreateBookCollection(
 ) -> list[Book]:
     """
     创建书集
-s
+
     title中的"{volume}"将被格式化为卷的序号
 
     Args:
