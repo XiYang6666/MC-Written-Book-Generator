@@ -63,8 +63,10 @@ class Book:
                 string[length:],
                 extended_width_dict=extended_width_dict,
             )
+            if not bookPage:
+                break
             # print(bookPage.string)
-            length += bookPage.length
+            length += bookPage.length  # type: ignore
             # print(f"--------------->翻页了 {i}")
             if length >= len(string):
                 break
@@ -137,5 +139,3 @@ class Book:
             ]
         )
         return nbt
-
-

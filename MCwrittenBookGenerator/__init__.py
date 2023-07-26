@@ -1,18 +1,16 @@
 from .book import Book
 from .page import Page
 
-__all__ = ["Page", "Book"]
-
 
 def CreateBookCollection(
     string: str,
     title: str = "writtenBook",
-    author: str = None,
-    extended_width_dict={},
+    author: str = "XiYang6666/writtenBookGenerator",
+    extended_width_dict=dict(),
 ) -> list[Book]:
     """
     创建书集
-
+s
     title中的"{volume}"将被格式化为卷的序号
 
     Args:
@@ -40,3 +38,6 @@ def CreateBookCollection(
         if length >= len(string):
             break
     return bookList
+
+
+__all__ = ["Page", "Book", "CreateBookCollection"]

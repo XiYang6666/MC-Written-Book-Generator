@@ -116,9 +116,9 @@ class Page:
         for width in WIDTH_DICT:
             if WIDTH_DICT[width](char):
                 return width
-            extended_width_dict = {**EXTENDED_WIDTH_DICT, **self.extended_width_dict}
-        if char in extended_width_dict:
-            return extended_width_dict[char]
+            extended_width_dict = {**EXTENDED_WIDTH_DICT, **self.extended_width_dict} #type:dict
+        if char in extended_width_dict: # type: ignore
+            return extended_width_dict[char] # type: ignore
         raise ValueError(f"Width data without character “{char}”")
 
     def getNbt(self, *, escapeWrap=True, json_text=True) -> nbtlib.String:
@@ -145,5 +145,5 @@ class Page:
 
     @classmethod
     def fromNbt(cls, nbt: nbtlib.Compound):
-        string = nbt.get("text", "").unpack()  # type: str
+        string = nbt.get("text", "").unpack()  # type: ignore
         return cls(string)
