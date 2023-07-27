@@ -18,6 +18,7 @@ def CreateBookCollection(
         - title(str): 书的标题
         - author(str): 书的作者
         - extended_width_dict(dict): 扩展宽度字典
+        
     Returns:
         - list[Book]: 书集列表
     """

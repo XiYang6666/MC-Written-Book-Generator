@@ -69,6 +69,7 @@ class Page:
             - string(str): 输入文本
             - escapeWrap(bool): 是否转义换行符
             - extended_width_dict(dict): 扩展字符宽度字典
+            
         Returns:
             - int: 创建书页使用的字符数
         """
@@ -108,6 +109,7 @@ class Page:
 
         Args:
             - char(str): 输入字符
+
         Returns:
             - int: 字符宽度
         """
@@ -129,6 +131,7 @@ class Page:
             - *
             - escapeWrap(bool): 是否转义换行符(json_text为True时该参数无效)
             - json_text(bool): 是否使用JSON字符(启用会占用更多空间,不启用无法换行)
+
         Returns:
             - nbtlib.String: 书页的nbt
         """

@@ -27,6 +27,7 @@ class Book:
             - pages(list[Page]): 书页列表
             - string(str): 输入文本
             - extended_width_dict(dict): 扩展字符宽度字典
+
         Returns:
         """
         self.title = title  # 标题
@@ -54,6 +55,7 @@ class Book:
             - string(str): 输入文本
             - *
             - extended_width_dict(dict): 扩展字符宽度字典
+
         Returns:
             - int: 创建书使用的字符数
         """
@@ -87,6 +89,7 @@ class Book:
             - string(str): 输入文本
             - *
             - extended_width_dict(dict): 扩展字符宽度字典
+
         Returns:
             - Page|bool: 成功返回书页对象,失败返回False
         """
@@ -106,6 +109,7 @@ class Book:
 
         Args:
             -bookPage(Page): 书页对象
+
         Returns:
             bool: 是否成功添加
         """
@@ -123,6 +127,7 @@ class Book:
             - *
             - escapeWrap(bool): 是否转义换行符(json_text为True时该参数无效)
             - json_text(bool): 是否使用JSON字符(启用会占用更多空间,不启用无法换行)
+            
         Returns:
             - nbtlib.Compound: 成书的nbt
         """
