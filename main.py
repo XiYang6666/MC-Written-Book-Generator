@@ -4,7 +4,7 @@ import sys
 import argparse
 import json
 
-from MCwrittenBookGenerator import Book, CreateBookCollection
+from written_book import Book, CreateBookCollection
 
 parser = argparse.ArgumentParser(description="Generate written books in Minecraft")
 parser.add_argument("txt_path", type=str)
