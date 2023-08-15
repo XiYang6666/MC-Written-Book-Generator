@@ -25,10 +25,10 @@ def isFullWidth(char):
 
 WIDTH_DICT = {
     2: lambda char: re.match(r"^['|!]$", char),
-    4: lambda char: re.match(r"^[..·()\[\];,Ⅰ‘’]$", char),
-    6: lambda char: re.match(r"^[1fijltI-—-{}\" <>]$", char),
+    4: lambda char: re.match(r"^[.·()\[\]:;,Ⅰ‘’]$", char),
+    6: lambda char: re.match(r"^[1fijltI\-—{}\" <>]$", char),
     8: lambda char: re.match(
-        r"^[023456789abcdeghkmnopqrsuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ~@#$&……&*?=/\\+_℃ⅡⅢⅣⅤⅨⅩⅪⅫ“”]$",
+        r"^[023456789abcdeghkmnopqrsuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ~@#$&…*?=/\\+_ⅡⅢⅣⅤⅨⅩⅪⅫ“”]$",
         char,
     )
     or isHalfWidthJapanese(char),
@@ -69,7 +69,7 @@ class Page:
             - string(str): 输入文本
             - escapeWrap(bool): 是否转义换行符
             - extended_width_dict(dict): 扩展字符宽度字典
-            
+
         Returns:
             - int: 创建书页使用的字符数
         """
@@ -118,9 +118,12 @@ class Page:
         for width in WIDTH_DICT:
             if WIDTH_DICT[width](char):
                 return width
-            extended_width_dict = {**EXTENDED_WIDTH_DICT, **self.extended_width_dict} #type:dict
-        if char in extended_width_dict: # type: ignore
-            return extended_width_dict[char] # type: ignore
+            extended_width_dict = {
+                **EXTENDED_WIDTH_DICT,
+                **self.extended_width_dict,
+            }  # type:dict
+        if char in extended_width_dict:  # type: ignore
+            return extended_width_dict[char]  # type: ignore
         raise ValueError(f"Width data without character “{char}”")
 
     def getNbt(self, *, escapeWrap=True, json_text=True) -> nbtlib.String:

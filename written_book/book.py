@@ -10,7 +10,7 @@ class Book:
         self,
         *,
         title: str = "writtenBook",
-        author: str = "XiYang6666/writtenBookGenerator",
+        author: str | None = "XiYang6666/writtenBookGenerator",
         pages: list[Page] = [],
         string: str | None = None,
         extended_width_dict={},
@@ -31,7 +31,9 @@ class Book:
         Returns:
         """
         self.title = title  # 标题
-        self.author = author  # 作者
+        self.author = (
+            author if not author is None else "XiYang6666/writtenBookGenerator"
+        )  # 作者
         self.length = 0  # 成书的字符数
         if string is None:
             self.pages = pages  # 书页列表
@@ -127,7 +129,7 @@ class Book:
             - *
             - escapeWrap(bool): 是否转义换行符(json_text为True时该参数无效)
             - json_text(bool): 是否使用JSON字符(启用会占用更多空间,不启用无法换行)
-            
+
         Returns:
             - nbtlib.Compound: 成书的nbt
         """

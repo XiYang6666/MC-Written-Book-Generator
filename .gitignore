@@ -1,5 +1,10 @@
-*/__pycache__
+.venv
+.vscode
+**/__pycache__
+images
+gui/datapack_template/data/written_book_generator/functions/get_written_books.mcfunction
+logs/*
+output
 out.txt
 output-*.txt
 刘慈欣 - 三体.txt
-images

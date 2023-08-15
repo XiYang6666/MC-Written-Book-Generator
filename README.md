@@ -4,16 +4,40 @@ This is a Python tool that allows you to generate written books in Minecraft bas
 
 ## Usage
 
-To use the tool, run the following bash command:
+### Method 1: Using UI Shortcut
 
-```bash
-python main.py <text_file_path> [-e <encoding_format>] [-t <title>] [-a <author>]
-```
+1. Run the provided script `install.bat` (for Windows) or `install.sh` (for Unix-like systems) to set up any necessary dependencies.
 
-- `<text_file_path>`: The path to the text file containing the content for the written book.
-- `<encoding_format>` (optional): The encoding format of the text file. If not specified, the default is utf-8.
-- `<title>` (optional): The title of the written book. You can use the placeholder {volume} in the title, and it will be automatically replaced with the volume number during the generation process.
-- `<author>` (optional): The author of the written book.
+2. After the installation is complete, run the provided script `ui.bat` (for Windows) or `ui.sh` (for Unix-like systems) to open the graphical user interface.
+
+### Method 2: Manual Command Line Usage
+
+1. Create and activate a virtual environment by executing the following commands:
+
+   - For Windows:
+
+     ```bash
+     python -m venv .venv
+     .venv\Scripts\activate
+     ```
+
+   - For Unix-like system:
+
+     ```bash
+     python -m venv .venv
+     source .venv/bin/activate
+     ```
+
+2. Once the virtual environment is activated, use the following bash command to utilize the tool:
+
+   ```bash
+   python main.py <text_file_path> [-e <encoding_format>] [-t <title>] [-a <author>]
+   ```
+
+   - `<text_file_path>`: The path to the text file containing the content for the written book.
+   - `<encoding_format>` (optional): The encoding format of the text file. If not specified, the default is utf-8.
+   - `<title>` (optional): The title of the written book. You can use the placeholder {volume} in the title, and it will be automatically replaced with the volume number during the generation process.
+   - `<author>` (optional): The author of the written book.
 
 ## Troubleshooting
 
