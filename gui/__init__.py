@@ -189,6 +189,10 @@ class App(QApplication):
                 result = ""
                 for nbt in resultNbtList:
                     result += f"give @p {itemName}" + nbt.snbt() + "\n"
+                # 处理路径
+                Path(
+                    ".gui/datapack_template/data/written_book_generator/functions/"
+                ).mkdir(parents=True, exist_ok=True)
                 # 写入函数
                 with open(
                     "gui/datapack_template/data/written_book_generator/functions/get_written_books.mcfunction",
