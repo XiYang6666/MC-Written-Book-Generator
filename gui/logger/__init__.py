@@ -26,9 +26,12 @@ consoleHandler.setFormatter(consoleFormatter)
 appLogger.addHandler(consoleHandler)
 
 # 设置文件输出
+logDir = Path("logs")
+if not logDir.is_dir():
+    logDir.mkdir()
 logPath = Path(f"logs/app_{datetime.now().date()}.log")
 logPath.touch()
-fileHandler = FileHandler(logPath)
+fileHandler = FileHandler(logPath, encoding="utf-8")
 fileFormatter = logging.Formatter(
     "%(asctime)s %(filename)s:%(lineno)d [%(levelname)s] %(message)s"
 )
