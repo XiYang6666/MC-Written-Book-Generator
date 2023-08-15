@@ -5,7 +5,7 @@ from .page import Page
 def CreateBookCollection(
     string: str,
     title: str = "writtenBook",
-    author: str = "XiYang6666/writtenBookGenerator",
+    author: str | None = "XiYang6666/writtenBookGenerator",
     extended_width_dict=dict(),
 ) -> list[Book]:
     """
@@ -18,7 +18,7 @@ def CreateBookCollection(
         - title(str): 书的标题
         - author(str): 书的作者
         - extended_width_dict(dict): 扩展宽度字典
-        
+
     Returns:
         - list[Book]: 书集列表
     """

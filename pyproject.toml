@@ -8,7 +8,15 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.11"
 nbtlib = "^2.0.4"
+pyqt6 = "^6.5.2"
+chardet = "^5.2.0"
+colorlog = "^6.7.0"
 
+
+[[tool.poetry.source]]
+name = "mirrors"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple/"
+priority = "default"
 
 [build-system]
 requires = ["poetry-core"]
