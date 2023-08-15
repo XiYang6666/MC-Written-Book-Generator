@@ -191,7 +191,7 @@ class App(QApplication):
                     result += f"give @p {itemName}" + nbt.snbt() + "\n"
                 # 处理路径
                 Path(
-                    ".gui/datapack_template/data/written_book_generator/functions/"
+                    "gui/datapack_template/data/written_book_generator/functions/"
                 ).mkdir(parents=True, exist_ok=True)
                 # 写入函数
                 with open(
