@@ -1,3 +1,3 @@
 python -m venv .venv
-.venv\Scripts\activate.bat
+call .venv\Scripts\activate.bat
 pip install .

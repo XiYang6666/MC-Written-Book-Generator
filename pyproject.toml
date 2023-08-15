@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "written book generator"
+name = "written_book"
 version = "0.1.0"
 description = ""
 authors = ["XiYang6666 <1782356858@qq.com>"]
