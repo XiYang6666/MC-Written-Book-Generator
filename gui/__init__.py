@@ -130,25 +130,32 @@ class App(QApplication):
         appLogger.info("开始导出")
         appLogger.info("开始处理导出类型")
         resultNbtList = []
+        itemName = "written_book"
         match outputType:
             case "成书":
+                itemName = "written_book"
                 resultNbtList = [book.getNbt() for book in bookList]
             case "潜影盒":
+                itemName = "white_shulker_box"
                 resultNbtList = []
-                temp_list = [bookList[i : i + 27] for i in range(0, len(bookList), 27)]
-                for shulkerBoxBooks in temp_list:
-                    shulkerBoxNbt = nbtlib.Compound()
-                    shulkerBoxItemsNbt = nbtlib.List()
+                tempList = [bookList[i : i + 27] for i in range(0, len(bookList), 27)]
+                for shulkerBoxBooks in tempList:
+                    shulkerBoxBlockNbt = nbtlib.Compound()
+                    # shulkerBoxItemsNbt = nbtlib.List(nbtlib.Compound)
+                    itemsNbtList = []
                     for i in range(len(shulkerBoxBooks)):
                         book = shulkerBoxBooks[i]
                         bookNbt = book.getNbt()
                         itemNbt = nbtlib.Compound()
-                        itemNbt["Solt"] = nbtlib.Byte(i)
+                        itemNbt["Slot"] = nbtlib.Byte(i)
                         itemNbt["id"] = nbtlib.String("minecraft:written_book")
                         itemNbt["Count"] = nbtlib.Byte(16)
-                        itemNbt["tag"] = book
-                        shulkerBoxItemsNbt.append(itemNbt)
-                    shulkerBoxNbt["Items"] = shulkerBoxItemsNbt
+                        itemNbt["tag"] = book.getNbt()
+                        itemsNbtList.append(itemNbt)
+                    shulkerBoxItemsNbt = nbtlib.List(itemsNbtList)
+                    shulkerBoxBlockNbt["Items"] = shulkerBoxItemsNbt
+                    shulkerBoxNbt = nbtlib.Compound()
+                    shulkerBoxNbt["BlockEntityTag"] = shulkerBoxBlockNbt
                     resultNbtList.append(shulkerBoxNbt)
 
         appLogger.info("开始处理导出格式")
@@ -169,11 +176,11 @@ class App(QApplication):
                     with open(
                         f"output/command_volume{i}.txt", "w", encoding="utf-8"
                     ) as f:
-                        f.write("/give @p written_book" + nbt.snbt())
+                        f.write(f"/give @p {itemName}" + nbt.snbt())
             case "函数文件":
                 result = ""
                 for nbt in resultNbtList:
-                    result += f"give @p written_book" + nbt.snbt() + "\n"
+                    result += f"give @p {itemName}" + nbt.snbt() + "\n"
                 with open(
                     f"output/get_written_book.mcfunction", "w", encoding="utf-8"
                 ) as f:
@@ -181,7 +188,7 @@ class App(QApplication):
             case "数据包":
                 result = ""
                 for nbt in resultNbtList:
-                    result += f"give @p written_book" + nbt.snbt() + "\n"
+                    result += f"give @p {itemName}" + nbt.snbt() + "\n"
                 # 写入函数
                 with open(
                     "gui/datapack_template/data/written_book_generator/functions/get_written_books.mcfunction",
