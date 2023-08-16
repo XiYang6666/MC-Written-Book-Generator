@@ -41,7 +41,7 @@ This is a Python tool that allows you to generate written books in Minecraft bas
 
 ## Troubleshooting
 
-If you encounter a “ValueError: Width data without character "..." ” during the generation process, you can add the width data for the character to the extended_width.json file.
+If you encounter a `ValueError: Width data without character “...”` during the generation process, you can add the width data for the character to the **extended_width.json** file.
 
 ## Customization
 
