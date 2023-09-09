@@ -2,7 +2,7 @@ from .book import Book
 from .page import Page
 
 
-def CreateBookCollection(
+def createBookCollection(
     string: str,
     title: str = "writtenBook",
     author: str | None = "XiYang6666/writtenBookGenerator",

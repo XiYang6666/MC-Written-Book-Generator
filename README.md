@@ -47,7 +47,7 @@ If you encounter a `ValueError: Width data without character “...”` during t
 
 If you prefer, you can also import this Python package and utilize the provided interfaces to customize the generation rules. The package provides the following classes and methods:
 
-- `create_book_collection`: A method used to generate a collection of written books.
+- `createBookCollection`: A method used to generate a collection of written books.
 - `Book`: A class used to generate individual written books.
 - `Page`: A class used to generate book pages.
 

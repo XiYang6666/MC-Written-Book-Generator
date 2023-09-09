@@ -14,7 +14,7 @@ from .logger import appLogger, log_colors
 from .logger.htmlColoredFormatter import HtmlColoredFormatter
 from .output_buffer import Buffer
 from .mainwindow import MainWindow
-from written_book import CreateBookCollection
+from written_book import createBookCollection
 
 
 class App(QApplication):
@@ -116,7 +116,7 @@ class App(QApplication):
             extendWidthDict = json.load(f)
         appLogger.info("开始生成")
         try:
-            bookList = CreateBookCollection(
+            bookList = createBookCollection(
                 content,
                 title,
                 author,
