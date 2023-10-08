@@ -1,23 +1,20 @@
-[tool.poetry]
-name = "written_book"
+[project]
+name = "MC-Written-Book-Generator"
 version = "0.1.0"
-description = ""
-authors = ["XiYang6666 <1782356858@qq.com>"]
+description = "Python tool for generating Minecraft books"
+authors = [
+    {name = "XiYang6666", email = "1782356858@qq.com"},
+]
+dependencies = [
+    "nbtlib>=2.0.4",
+    "pyqt6>=6.5.2",
+    "chardet>=5.2.0",
+    "colorlog>=6.7.0",
+]
+requires-python = ">=3.11"
 readme = "README.md"
-
-[tool.poetry.dependencies]
-python = "^3.11"
-nbtlib = "^2.0.4"
-pyqt6 = "^6.5.2"
-chardet = "^5.2.0"
-colorlog = "^6.7.0"
-
-
-[[tool.poetry.source]]
-name = "mirrors"
-url = "https://pypi.tuna.tsinghua.edu.cn/simple/"
-priority = "default"
+license = {text = "MIT"}
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
