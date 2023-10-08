@@ -3,7 +3,6 @@ from logging import FileHandler, StreamHandler
 from datetime import datetime
 from pathlib import Path
 
-import colorlog
 from colorlog import ColoredFormatter
 
 appLogger = logging.getLogger("app")

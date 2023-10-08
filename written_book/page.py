@@ -9,7 +9,7 @@ from .config import EXTENDED_WIDTH_DICT
 def isChineseOrJapanese(char):
     name = unicodedata.name(char).split()
     return "CJK" in name or (
-        ("HIRAGANA" in name or "KATAKANA" in name) and not "HALFWIDTH" in name
+        ("HIRAGANA" in name or "KATAKANA" in name) and "HALFWIDTH" not in name
     )
 
 

@@ -32,7 +32,7 @@ class Book:
         """
         self.title = title  # 标题
         self.author = (
-            author if not author is None else "XiYang6666/writtenBookGenerator"
+            author if author is not None else "XiYang6666/writtenBookGenerator"
         )  # 作者
         self.length = 0  # 成书的字符数
         if string is None:

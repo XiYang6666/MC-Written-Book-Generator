@@ -1,5 +1,3 @@
-import tomllib
-import typing
 from PyQt6 import QtCore
 from PyQt6.QtGui import QCloseEvent
 from PyQt6.QtWidgets import QMainWindow
