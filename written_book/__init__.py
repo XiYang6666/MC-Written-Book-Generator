@@ -41,4 +41,4 @@ def createBookCollection(
     return bookList
 
 
-__all__ = ["Page", "Book", "CreateBookCollection"]
+__all__ = ["Page", "Book", "createBookCollection"]

@@ -1,13 +1,12 @@
 import sys
 import json
-import logging
 import zipfile
 from logging import StreamHandler
 from pathlib import Path
 
 import chardet
 import nbtlib
-from PyQt6.QtWidgets import QApplication, QWidget
+from PyQt6.QtWidgets import QApplication
 from PyQt6.QtWidgets import QFileDialog, QMessageBox
 
 from .logger import appLogger, log_colors
@@ -145,7 +144,6 @@ class App(QApplication):
                     itemsNbtList = []
                     for i in range(len(shulkerBoxBooks)):
                         book = shulkerBoxBooks[i]
-                        bookNbt = book.getNbt()
                         itemNbt = nbtlib.Compound()
                         itemNbt["Slot"] = nbtlib.Byte(i)
                         itemNbt["id"] = nbtlib.String("minecraft:written_book")
@@ -182,7 +180,7 @@ class App(QApplication):
                 for nbt in resultNbtList:
                     result += f"give @p {itemName}" + nbt.snbt() + "\n"
                 with open(
-                    f"output/get_written_book.mcfunction", "w", encoding="utf-8"
+                    "output/get_written_book.mcfunction", "w", encoding="utf-8"
                 ) as f:
                     f.write(result)
             case "数据包":
