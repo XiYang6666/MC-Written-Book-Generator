@@ -16,6 +16,8 @@ license = { text = "MIT" }
 
 [tool.pdm.scripts]
 "build-ui" = { shell = "python -m PyQt6.uic.pyuic ./written-book-gui/mainwindow.ui -o ./written-book-gui/ui_mainwindow.py " }
+"run-ui" = { shell = "python ui.py" }
+"run-cli" = { shell = "python cli.py" }
 
 [build-system]
 requires = ["pdm-backend"]
