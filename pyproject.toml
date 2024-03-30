@@ -2,9 +2,7 @@
 name = "MC-Written-Book-Generator"
 version = "0.1.0"
 description = "Python tool for generating Minecraft books"
-authors = [
-    {name = "XiYang6666", email = "1782356858@qq.com"},
-]
+authors = [{ name = "XiYang6666", email = "1782356858@qq.com" }]
 dependencies = [
     "nbtlib>=2.0.4",
     "pyqt6>=6.5.2",
@@ -13,8 +11,12 @@ dependencies = [
 ]
 requires-python = ">=3.11"
 readme = "README.md"
-license = {text = "MIT"}
+license = { text = "MIT" }
 
 [build-system]
 requires = ["pdm-backend"]
 build-backend = "pdm.backend"
+
+[tool.pylint]
+disable = ["C0114", "C0115", "C0116"]
+ignore = ["gui/Ui_mainwindow.py"]

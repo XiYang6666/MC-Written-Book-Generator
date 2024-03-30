@@ -1,6 +1,7 @@
+from typing_extensions import override
 from PyQt6 import QtCore
-from PyQt6.QtGui import QCloseEvent
-from PyQt6.QtWidgets import QMainWindow
+from PyQt6.QtGui import QCloseEvent  # pylint: disable=E0611
+from PyQt6.QtWidgets import QMainWindow  # pylint: disable=E0611
 
 from .Ui_mainwindow import Ui_MainWindow
 from .logger import appLogger
@@ -12,9 +13,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.setupUi(self)
 
         self.setWindowFlags(
-            QtCore.Qt.WindowType.MSWindowsFixedSizeDialogHint
+            QtCore.Qt.WindowType.MSWindowsFixedSizeDialogHint  # pylint: disable=I1101
         )  # 固定大小,禁用全屏
 
-    def closeEvent(self, a0: QCloseEvent | None) -> None:
+    @override
+    def closeEvent(self, a0: QCloseEvent | None) -> None:  # pylint: disable=C0103
         appLogger.info("程序已退出")
         return super().closeEvent(a0)

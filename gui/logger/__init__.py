@@ -10,7 +10,7 @@ appLogger.setLevel(logging.INFO)
 
 # 设置控制台输出
 consoleHandler = StreamHandler()
-log_colors = {
+logColors = {
     "DEBUG": "white",
     "INFO": "green",
     "WARNING": "yellow",
@@ -19,7 +19,7 @@ log_colors = {
 }
 consoleFormatter = ColoredFormatter(
     "%(log_color)s%(asctime)s %(filename)s:%(lineno)d [%(levelname)s] %(message)s",
-    log_colors=log_colors,
+    log_colors=logColors,
 )
 consoleHandler.setFormatter(consoleFormatter)
 appLogger.addHandler(consoleHandler)

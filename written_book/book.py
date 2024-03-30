@@ -1,19 +1,19 @@
+from typing import Optional, Self
 import nbtlib
 
+from .exception.add_page_failed_exception import AddPageFailedException
 from .page import Page
+
+MAX_PAGE = 100
 
 
 class Book:
-    MAX_PAGE = 100
-
     def __init__(
         self,
         *,
-        title: str = "writtenBook",
-        author: str | None = "XiYang6666/writtenBookGenerator",
-        pages: list[Page] = [],
-        string: str | None = None,
-        extended_width_dict={},
+        title: Optional[str] = None,
+        author: Optional[str] = None,
+        pages: Optional[list[Page]] = None,
     ):
         """
         创建一本成书
@@ -30,26 +30,20 @@ class Book:
 
         Returns:
         """
-        self.title = title  # 标题
-        self.author = (
-            author if author is not None else "XiYang6666/writtenBookGenerator"
-        )  # 作者
-        self.length = 0  # 成书的字符数
-        if string is None:
-            self.pages = pages  # 书页列表
-        else:
-            self.pages = []
-            self.length = self.createBook(
-                string,
-                extended_width_dict=extended_width_dict,
-            )
 
-    def createBook(
-        self,
-        string,
+        self.title = title or "writtenBook"
+        self.author = author or "XiYang6666/writtenBookGenerator"
+        self.pages = pages or []
+
+    @classmethod
+    def from_string(
+        cls,
+        string: str,
         *,
-        extended_width_dict={},
-    ) -> int:
+        title: Optional[str] = None,
+        author: Optional[str] = None,
+        extended_width_dict: Optional[dict] = None,
+    ) -> Self:
         """
         用文本创建一本书
 
@@ -61,49 +55,27 @@ class Book:
         Returns:
             - int: 创建书使用的字符数
         """
-        length = 0
-        for i in range(self.MAX_PAGE):
-            bookPage = self.createPage(
-                string[length:],
-                extended_width_dict=extended_width_dict,
-            )
-            if not bookPage:
-                break
-            # print(bookPage.string)
-            length += bookPage.length  # type: ignore
-            # print(f"--------------->翻页了 {i}")
+
+        instance = cls(title=title, author=author)
+        length = 0  # 不使用instance.get_length()避免不必要的性能损耗
+
+        for _ in range(MAX_PAGE):
+            page = Page(string[length:], extended_width_dict=extended_width_dict)
+            if not instance.add_page(page):
+                raise AddPageFailedException()
+            length += page.length
             if length >= len(string):
                 break
-        return length
 
-    def createPage(
-        self,
-        string: str,
-        *,
-        extended_width_dict={},
-    ) -> Page | bool:
-        """
-        创建书页并添加到书中
+        return instance
 
-        成功返回书页对象,失败返回False
+    def get_length(self) -> int:
+        result = 0
+        for page in self.pages:
+            result += page.length
+        return result
 
-        Args:
-            - string(str): 输入文本
-            - *
-            - extended_width_dict(dict): 扩展字符宽度字典
-
-        Returns:
-            - Page|bool: 成功返回书页对象,失败返回False
-        """
-        result = self.addPage(
-            page := Page(
-                string,
-                extended_width_dict=extended_width_dict,
-            )
-        )
-        return page if result else result
-
-    def addPage(self, bookPage: Page = Page("")) -> bool:
+    def add_page(self, book_page: Page) -> bool:
         """
         添加书页
 
@@ -115,13 +87,14 @@ class Book:
         Returns:
             bool: 是否成功添加
         """
-        if len(self.pages) >= 100:
+
+        if len(self.pages) >= MAX_PAGE:
             return False
         else:
-            self.pages.append(bookPage)
+            self.pages.append(book_page)
             return True
 
-    def getNbt(self, *, escapeWrap=True, json_text=True) -> nbtlib.Compound:
+    def get_nbt(self, *, escapeWrap=True, json_text=True) -> nbtlib.Compound:
         """
         获取成书的nbt
 
@@ -138,8 +111,8 @@ class Book:
         nbt["author"] = nbtlib.String(self.author)
         nbt["pages"] = nbtlib.List(
             [
-                page.getNbt(
-                    escapeWrap=escapeWrap,
+                page.get_nbt(
+                    escape_wrap=escapeWrap,
                     json_text=json_text,
                 )
                 for page in self.pages
