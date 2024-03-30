@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 
-import sys
 import argparse
 import json
+from typing import Optional
 
-from written_book import Book, create_book_collection
+from written_book import create_book_collection
 
 parser = argparse.ArgumentParser(description="Generate written books in Minecraft")
 parser.add_argument("txt_path", type=str)
@@ -15,20 +15,16 @@ parser.add_argument("-t", "--title", help="Title of the written book", type=str)
 parser.add_argument("-a", "--author", help="Author of the written book", type=str)
 
 args = parser.parse_args()
-txtPath = args.txt_path
-encoding = args.encoding
-title = args.title
-author = args.author
+txtPath: str = args.txt_path
+encoding: str = args.encoding
+title: Optional[str] = args.title
+author: Optional[str] = args.author
 
 if title is None:
-    title = input("title: ")
-    if title == "":
-        title = "writtenBook"
+    title = input("title: ") or None
 
 if author is None:
-    author = input("author: ")
-    if author == "":
-        author = None
+    author = input("author: ") or None
 
 with open("extended_width.json", encoding="utf-8") as f:
     extended_width_dict = json.load(f)
@@ -36,10 +32,11 @@ with open("extended_width.json", encoding="utf-8") as f:
 with open(txtPath, "r", encoding=encoding) as f:
     string = f.read()
 
-book_list = create_book_collection(string, title, author, extended_width_dict)
-for i in range(len(book_list)):
-    book = book_list[i]  # type:Book
+book_list = create_book_collection(
+    string, title=title, author=author, extended_width_dict=extended_width_dict
+)
+for i, book in enumerate(book_list):
     with open(f"output-{i+1}.txt", "w", encoding="utf-8") as f:
-        f.write("/give @p written_book" + book.get_nbt().snbt())
+        f.write(f"/give @p written_book {book.get_nbt().snbt()}")
 
 print("done.")

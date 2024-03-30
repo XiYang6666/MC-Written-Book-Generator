@@ -1,6 +1,6 @@
 import sys
 
-from gui import App
+from written_book_gui import App
 
 app = App(sys.argv)
 sys.exit(app.exec())

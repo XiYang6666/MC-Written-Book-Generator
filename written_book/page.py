@@ -91,7 +91,6 @@ class Page:
 
         line_width = 0  # 本行长度
         line = 0  # 行数量
-        length = 0  # 字符数
         for char in string:
             char_width = get_char_width(char, extended_width_dict=extended_width_dict)
             if (line_width + char_width) > PAGE_WIDTH or char == "\n":
@@ -106,7 +105,7 @@ class Page:
             if not char == "\n":
                 self.string += char
             line_width += char_width
-            length += 1
+            self.length += 1
 
     def get_nbt(self, *, escape_wrap=True, json_text=True) -> nbtlib.String:
         """

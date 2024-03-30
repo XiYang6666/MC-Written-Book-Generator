@@ -1,5 +1,5 @@
 [project]
-name = "MC-Written-Book-Generator"
+name = "written-book"
 version = "0.1.0"
 description = "Python tool for generating Minecraft books"
 authors = [{ name = "XiYang6666", email = "1782356858@qq.com" }]
@@ -8,13 +8,14 @@ dependencies = [
     "pyqt6>=6.5.2",
     "chardet>=5.2.0",
     "colorlog>=6.7.0",
+    "typing-extensions>=4.10.0",
 ]
 requires-python = ">=3.11"
 readme = "README.md"
 license = { text = "MIT" }
 
 [tool.pdm.scripts]
-"build-ui" = { shell = "python -m PyQt6.uic.pyuic ./gui/mainwindow.ui -o ./gui/ui_mainwindow.py " }
+"build-ui" = { shell = "python -m PyQt6.uic.pyuic ./written-book-gui/mainwindow.ui -o ./written-book-gui/ui_mainwindow.py " }
 
 [build-system]
 requires = ["pdm-backend"]
@@ -22,4 +23,4 @@ build-backend = "pdm.backend"
 
 [tool.pylint]
 disable = ["C0114", "C0115", "C0116"]
-ignore = ["gui/Ui_mainwindow.py"]
+ignore = ["gui/ui_mainwindow.py"]
