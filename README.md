@@ -1,54 +1,55 @@
-# MC Written Book Generator
+# MC 成书生成器
 
-This is a Python tool that allows you to generate written books in Minecraft based on a text file. If the text is too long, it will automatically split the written book into volumes. The tool supports various options for customization, such as specifying the encoding format,written book title, and author.
+一个用于在 Minecraft 中使用文本文件生成成书的 Python 工具. 如果文本太长, 它会自动将成书分成多卷. 该工具支持各种自定义选项, 例如指定编码格式,成书名和作者.
 
-## Usage
+[中文](README.md) | [English](docs/README-en.md)
 
-### Method 1: Using UI Shortcut
+## 用法
 
-1. Run the provided script `install.bat` (for Windows) or `install.sh` (for Unix-like systems) to set up any necessary dependencies.
+### 方法 1：使用 UI 快捷方式
 
-2. After the installation is complete, run the provided script `ui.bat` (for Windows) or `ui.sh` (for Unix-like systems) to open the graphical user interface.
+1.运行脚本 `install.bat`(Windows)或`install.sh`(类 Unix 系统) 以安装依赖项.
 
-### Method 2: Manual Command Line Usage
+2.安装完成后, 运行脚本 `ui.bat` (Windows)或`ui.sh`(类 Unix 系统) 打开图形用户界面.
 
-1. Create and activate a virtual environment by executing the following commands:
+### 方法 2：手动使用命令行
 
-   - For Windows:
+#### 1. 通过执行以下命令创建并激活虚拟环境
 
-     ```bash
-     python -m venv .venv
-     .venv\Scripts\activate
-     ```
+Windows:
 
-   - For Unix-like system:
+```bash
+python-m venv.venv
+.venv\Scripts\activate
+```
 
-     ```bash
-     python -m venv .venv
-     source .venv/bin/activate
-     ```
+类 Unix 系统:
 
-2. Once the virtual environment is activated, use the following bash command to utilize the tool:
+```bash
+python-m venv.venv
+source.venv/bin/activate
+```
 
-   ```bash
-   python main.py <text_file_path> [-e <encoding_format>] [-t <title>] [-a <author>]
-   ```
+#### 2.激活虚拟环境后, 使用以下 bash 命令来使用该工具
 
-   - `<text_file_path>`: The path to the text file containing the content for the written book.
-   - `<encoding_format>` (optional): The encoding format of the text file. If not specified, the default is utf-8.
-   - `<title>` (optional): The title of the written book. You can use the placeholder {volume} in the title, and it will be automatically replaced with the volume number during the generation process.
-   - `<author>` (optional): The author of the written book.
+```bash
+python main.py <text_file_path> [-e <encoding_format>] [-t <title>] [-a <author>]
+```
 
-## Troubleshooting
+- `<text_file_path>`：包含成书内容的文本文件的路径.
+- `<encoding_format>`(可选)：文本文件的编码格式. 如果未指定, 则默认值为 utf-8. -`<title>`(可选)：成书的标题. 您可以在标题中使用占位符{volume}, 在生成过程中它将自动替换为卷号.
+- `<author>`(可选)：成书的作者.
 
-If you encounter a `ValueError: Width data without character “...”` during the generation process, you can add the width data for the character to the **extended_width.json** file.
+## 故障排除
 
-## Customization
+如果在生成过程中遇到`ValueError: Width data without character“…”`, 则可以将该字符的宽度数据添加到**extended_Width.json**文件中.
 
-If you prefer, you can also import this Python package and utilize the provided interfaces to customize the generation rules. The package provides the following classes and methods:
+## 自定义
 
-- `createBookCollection`: A method used to generate a collection of written books.
-- `Book`: A class used to generate individual written books.
-- `Page`: A class used to generate book pages.
+可以通过导入此 Python 包, 并利用提供的接口自定义生成规则. 该包提供了以下类和方法:
 
-Feel free to explore the package and customize the generation process according to your needs.
+- `create_book_collection`: 用于生成成书集合的方法.
+- `Book`: 用于生成单个成书的类.
+- `Page`: 用于生成书页的类.
+
+你也可以随意使用此程序, 并根据您的需求定制生成过程.
