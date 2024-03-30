@@ -3,7 +3,7 @@ from PyQt6 import QtCore
 from PyQt6.QtGui import QCloseEvent  # pylint: disable=E0611
 from PyQt6.QtWidgets import QMainWindow  # pylint: disable=E0611
 
-from .Ui_mainwindow import Ui_MainWindow
+from .ui_mainwindow import Ui_MainWindow
 from .logger import appLogger
 
 
