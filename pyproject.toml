@@ -13,6 +13,9 @@ requires-python = ">=3.11"
 readme = "README.md"
 license = { text = "MIT" }
 
+[tool.pdm.scripts]
+"build-ui" = { shell = "python -m PyQt6.uic.pyuic ./gui/mainwindow.ui -o ./gui/ui_mainwindow.py " }
+
 [build-system]
 requires = ["pdm-backend"]
 build-backend = "pdm.backend"
