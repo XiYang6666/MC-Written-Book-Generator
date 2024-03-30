@@ -1,5 +1,0 @@
-nbtlib>=2.0.4
-pyqt6>=6.5.2
-chardet>=5.2.0
-colorlog>=6.7.0
-typing-extensions>=4.10.0
