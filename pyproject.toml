@@ -19,9 +19,7 @@ license = { text = "MIT" }
 "run-ui" = { shell = "python ui.py" }
 "run-cli" = { shell = "python cli.py" }
 
-[build-system]
-requires = ["pdm-backend"]
-build-backend = "pdm.backend"
+
 
 [tool.pylint]
 disable = ["C0114", "C0115", "C0116"]
