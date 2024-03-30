@@ -1,6 +1,6 @@
 [project]
 name = "written-book"
-version = "0.1.0"
+version = "0.2.0"
 description = "Python tool for generating Minecraft books"
 authors = [{ name = "XiYang6666", email = "1782356858@qq.com" }]
 dependencies = [
