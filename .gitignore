@@ -2,7 +2,7 @@
 /.vscode
 /.pdm-python
 **/__pycache__
-/gui/datapack_template/data/written_book_generator/functions/get_written_books.mcfunction
+/data/datapack_template/data/**/*
 /logs/*
 /output
 /dist

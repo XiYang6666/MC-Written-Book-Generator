@@ -196,7 +196,7 @@ class App(QApplication):
                     result += f"give @p {item_name}" + nbt.snbt() + "\n"
                 # 处理路径
                 func_path = Path(
-                    "src/written_book_gui/datapack_template/data/written_book_generator/functions"
+                    "data/datapack_template/data/written_book_generator/functions"
                 )
                 func_path.mkdir(parents=True, exist_ok=True)
                 # 写入函数
@@ -212,7 +212,7 @@ class App(QApplication):
                     "w",
                     compression=zipfile.ZIP_DEFLATED,
                 )
-                datapack_template_path = Path("src/written_book_gui/datapack_template")
+                datapack_template_path = Path("data/datapack_template")
                 for file in datapack_template_path.rglob("*"):
                     zip_obj.write(file, file.relative_to(datapack_template_path))
         appLogger.info("导出完毕,请在output目录查看输出")
