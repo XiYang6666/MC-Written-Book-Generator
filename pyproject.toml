@@ -1,6 +1,6 @@
 [project]
 name = "written-book"
-version = "0.2.0"
+version = "0.2.1"
 description = "Python tool for generating Minecraft books"
 authors = [{ name = "XiYang6666", email = "1782356858@qq.com" }]
 dependencies = [
@@ -18,7 +18,6 @@ license = { text = "MIT" }
 "build-ui" = { shell = "python -m PyQt6.uic.pyuic ./written-book-gui/mainwindow.ui -o ./written-book-gui/ui_mainwindow.py " }
 "run-ui" = { shell = "python ui.py" }
 "run-cli" = { shell = "python cli.py" }
-
 
 
 [tool.pylint]
