@@ -18,7 +18,7 @@ license = { text = "MIT" }
 distribution = false
 
 [tool.pdm.scripts]
-"build-ui" = { shell = "python -m PyQt6.uic.pyuic ./written-book-gui/mainwindow.ui -o ./written-book-gui/ui_mainwindow.py " }
+"build-ui" = { shell = "python -m PyQt6.uic.pyuic ./src/written_book_gui/mainwindow.ui -o ./src/written_book_gui/ui_mainwindow.py " }
 "run-ui" = { shell = "python ui.py" }
 "run-cli" = { shell = "python cli.py" }
 
