@@ -4,6 +4,9 @@ This is a Python tool that allows you to generate written books in Minecraft bas
 
 [中文](README.md) | [English](docs/README-en.md)
 
+> ![IMPORTANT]
+> this project is no longer maintained, please use the new version [WrittenBookEditor](https://github.com/XiYang6666/WrittenBookEditor) instead.
+
 ## Usage
 
 ### Method 1: Using UI Shortcut

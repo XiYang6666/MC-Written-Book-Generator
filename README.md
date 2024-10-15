@@ -4,6 +4,9 @@
 
 [中文](README.md) | [English](docs/README-en.md)
 
+> ![IMPORTANT]
+> 此项目不再维护, 请使用新版的 [WrittenBookEditor](https://github.com/XiYang6666/WrittenBookEditor) 代替.
+
 ## Roadmap
 
 - [ ] 使用 Unifont 获取宽度而非硬编码.
